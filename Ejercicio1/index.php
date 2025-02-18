@@ -6,7 +6,7 @@
     <title>Formulario</title>
 </head>
 <body>
-    <form action="recibe.php" name="formulario_contacto" method="post">
+    <form action="formulario.php" name="formulario_contacto" method="post">
         <input type="text" placeholder="Nombre:" name="nombre" id="nombre">
         <input type="text" placeholder="Edad:" name="edad" id="edad">
         <br>
