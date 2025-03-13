@@ -1,0 +1,170 @@
+*{
+    padding: 0;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif, 'Roboto', sans-serif;
+    margin: 20px;
+    background-color: #fad6ec;
+    color: #0a0a0a;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #85095b;
+    text-transform: uppercase;
+}
+
+a {
+    color: #00ffcc;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff00ff;
+}
+
+.card {
+    background-color: #070707;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card p {
+    line-height: 1.6;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+}
+
+.search-container form {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    flex-direction: row;
+    max-width: 800px;
+}
+
+.table-container {
+    margin-bottom: 20px;
+}
+
+.container {
+    width: 100%;
+    margin: 30px auto;
+    overflow: hidden;
+}
+label {
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    padding: 10px;
+    background-color: #3f1d8f;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #8a5cd3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+td {
+    background-color: #f2f2f2;
+    padding: 12px;
+    border: 1px solid #db1682;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    padding: 12px;
+    border: 1px solid #db1682;
+    text-align: left;
+    color: #d329ae;
+}
+
+
+
+button:hover {
+    background-color: #ff00ff;
+}
+
+.form-buttons {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    color: #070707;
+    display: block;
+    font-size: 14px;
+    background: #ee38b7;
+    margin-bottom: 15px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    outline: medium none;
+    cursor: pointer;
+    position:static;
+}
+
+.crud-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.crud-buttons a {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.crud-buttons .update {
+    background-color: #24c72c;
+    color: white;
+}
+
+.crud-buttons .delete {
+    background-color: #f44336;
+    color: white;
+}
+
+.footer {
+    background-color: #080808;
+    color: #666;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
