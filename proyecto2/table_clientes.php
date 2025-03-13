@@ -1,6 +1,6 @@
 <?php include 'conexion.php';
-if (isset($_GET["documento"]) && isset($_GET['cmd'])) {
-    $documento = $_GET['documento'];
+if (isset($_GET["id"]) && isset($_GET['cmd'])) {
+    $documento = $_GET['id'];
     $cmd = $_GET['cmd'];
     switch ($cmd) {
         case 'delete':
@@ -106,13 +106,8 @@ if (isset($_POST['registro'])) {
                         echo "<td>" . $fila['apellido'] . "</td>";
                         echo "<td> " . $fila['ciudad'] . ' ' . $fila['dto'] . "</td>";
                         echo "<td class='crud-buttons'>
-                            <a href='form_cliente.php?id=" . $fila['documento'] . "&cmd=update' class='update'><img src='img/update.png' width='20px' height='20px'>Editar</a>
-                            <form class='delete' action='table_clientes.php' method='get' onsubmit='return confirmarEliminacion();'>
-                                <input type='hidden' name='documento' value='" . $fila['documento'] . "'>
-                                <input type='hidden' name='cmd' value='delete'>
-                                <button type='submit' class='delete'>Borrar</button>
-                            </form> 
-                            <a href='table_clientes.php?id=" . $fila['documento'] . "&cmd=delete' class='delete'><img src='img/delete.png' width='20px' height='20px'>Borrar</a></td>";
+                            <a href='form_cliente.php?id=" . $fila['documento'] . "&cmd=update' class='update'><img src='img/imagen1.jpeg' width='20px' height='20px'>Editar</a>
+                            <a href='table_clientes.php?id=" . $fila['documento'] . "&cmd=delete' class='delete'><img src='img/imagen2.jpeg' width='20px' height='20px'>Borrar</a></td>";
                         echo "</tr>";
                     }
                     ?>
