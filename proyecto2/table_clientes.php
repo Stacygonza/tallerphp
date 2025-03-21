@@ -17,7 +17,7 @@ if (isset($_GET["id"]) && isset($_GET['cmd'])) {
     $search = $_GET['search'];
     $btn = $_GET['btn'];
     if ($btn == "Buscar") {
-        $sql = "SELECT c.documento, c.nombre, c.apellido, c.ciudad_id, cd.nombre as ciudad, d.nombre as dto
+        $sql = "SELECT c. activo, c.documento, c.nombre, c.apellido, c.ciudad_id, cd.nombre as ciudad, d.nombre as dto
                 FROM clientes as c 
                 JOIN ciudades as cd ON c.ciudad_id = cd.id
                 JOIN departamentos as d ON d.id = cd.dto_id
@@ -31,6 +31,7 @@ if (isset($_GET["id"]) && isset($_GET['cmd'])) {
 if (isset($_POST['registro'])) {
     print_r($_POST);
     $cmd = $_POST['cmd'];
+    $activo = $_POST['activo'];
     $documento = (int) $_POST['documento'];
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
@@ -81,6 +82,7 @@ if (isset($_POST['registro'])) {
             <table>
                 <thead>
                     <tr>
+                        <th>Genero</th>
                         <th>Documento</th>
                         <th>Nombre</th>
                         <th>Apellido</th>
@@ -92,7 +94,7 @@ if (isset($_POST['registro'])) {
                     <!-- Las filas de clientes dinámicamente -->
                     <?php
                     if (!isset($resultado)) {
-                        $sql = "SELECT c.documento, c.nombre, c.apellido, c.ciudad_id, cd.nombre as ciudad, d.nombre as dto
+                        $sql = "SELECT c.activo, c.documento, c.nombre, c.apellido, c.ciudad_id, cd.nombre as ciudad, d.nombre as dto
                                 FROM clientes as c 
                                 JOIN ciudades as cd ON c.ciudad_id = cd.id
                                 JOIN departamentos as d ON d.id = cd.dto_id";
@@ -101,6 +103,7 @@ if (isset($_POST['registro'])) {
                     while ($fila = mysqli_fetch_array($resultado)) {
                         //$usuario = Usuario::crearDesdeFila($fila);
                         echo "<tr>";
+                        echo "<td><img src='img/" . ($fila['activo'] == 0 ? 'fe' : '') . "male.png' width='40px' height='40px'></td>";
                         echo "<td>" . $fila['documento'] . "</td>";
                         echo "<td>" . $fila['nombre'] . "</td>";
                         echo "<td>" . $fila['apellido'] . "</td>";

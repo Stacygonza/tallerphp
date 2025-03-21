@@ -4,7 +4,7 @@ if (isset($_GET['id']) && isset($_GET['cmd'])) {
     $cmd = $_GET['cmd'];
     switch ($cmd) {
         case 'update':
-            $sql = "SELECT c.documento, c.nombre, c.apellido, c.ciudad_id, cd.nombre as ciudad, cd.dto_id, d.nombre as dto
+            $sql = "SELECT c.documento, c.nombre, c.apellido, c.ciudad_id, cd.nombre as ciudad, cd.dto_id, d.nombre as dto, c.activo
                     FROM clientes as c 
                     JOIN ciudades as cd ON c.ciudad_id = cd.id
                     JOIN departamentos as d ON d.id = cd.dto_id
@@ -18,7 +18,7 @@ if (isset($_GET['id']) && isset($_GET['cmd'])) {
     }
 } else {
     $bnt_form = "Registrar";
-    $data_form = array('documento' => '', 'nombre' => '', 'apellido' => '', 'ciudad_id' => '', 'ciudad' => 1, 'dto_id'=> 1, 'dto'=> '', 'cmd' => 'new');
+    $data_form = array('documento' => '', 'nombre' => '', 'apellido' => '', 'ciudad_id' => '', 'ciudad' => 1, 'dto_id'=> 1, 'dto'=> '', 'activo'=> 0, 'cmd' => 'new');
 }
 
 ?>
@@ -46,6 +46,25 @@ if (isset($_GET['id']) && isset($_GET['cmd'])) {
             <label for="apellido">Apellido:</label>
             <input type="text" id="apellido" name="apellido" required value="<?php echo $data_form['apellido']; ?>">
             <br>
+            <div class="mb-3">
+                <label for="genero" class="form-label">Genero</label>
+                <div class="form-check
+                ">
+                    <input class="form-check
+                    -input" type="radio" id="genero" name="activo" value="1" <?php if ($data_form['activo'] == 1) {
+                                                                                    echo 'checked';
+                                                                                } ?>>
+                    <label class="form-check
+                    -label" for="genero">Hombre</label>
+
+                    <input class="form-check
+                    -input" type="radio" id="genero" name="activo" value="0" <?php if ($data_form['activo'] == 0) {
+                                                                                    echo 'checked';
+                                                                                } ?>>
+                    <label class="form-check
+                    -label" for="genero">Mujer</label>
+                </div>
+            </div>
             <label for="ciudad">Departamento:</label>
             <select name="dto" id="dto">
                 <option value="<?php echo $data_form['dto_id']; ?>"><?php echo $data_form['dto']; ?></option>
